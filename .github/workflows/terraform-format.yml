@@ -1,0 +1,26 @@
+name: Terraform Format Check
+
+on:
+  pull_request:
+    paths:
+      - '**/*.tf'   # This ensures that the workflow only runs on Terraform files
+  push:
+    branches:
+      - main
+      - "refs/tags/*"
+
+jobs:
+  format:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Terraform
+      uses: hashicorp/setup-terraform@v1
+
+    - name: Terraform fmt check
+      run: |
+        terraform fmt -check -diff
+      continue-on-error: true
