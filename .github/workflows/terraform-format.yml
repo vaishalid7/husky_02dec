@@ -1,13 +1,13 @@
-echo "name: Terraform Format Check
+name: Terraform Format Check
 
 on:
   pull_request:
     paths:
-      - '**/*.tf'
+      - '**/*.tf'   # This ensures that the workflow only runs on Terraform files
   push:
     branches:
       - main
-      - 'refs/tags/*'
+      - "refs/tags/*"
 
 jobs:
   format:
@@ -23,4 +23,4 @@ jobs:
     - name: Terraform fmt check
       run: |
         terraform fmt -check -diff
-      continue-on-error: true" > .github/workflows/terraform-format.yml
+      continue-on-error: true
