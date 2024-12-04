@@ -4,7 +4,7 @@ provider "aws" {
 
 resource "aws_s3_bucket" "bucket" {
   bucket = "my-demo-bucket"
-  acl    = " private"
+  acl    = " private1"
 
 
 }
