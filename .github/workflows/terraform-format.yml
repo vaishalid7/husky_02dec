@@ -8,6 +8,7 @@ on:
     branches:
       - main
       - "refs/tags/*"
+  workflow_dispatch:  # Allows for manual triggering of the workflow
 
 jobs:
   format:
